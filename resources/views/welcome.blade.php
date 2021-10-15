@@ -7,7 +7,7 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>Laravel</title>
+    <title>BookStore</title>
 
     <script src="{{ asset('js/app.js') }}" defer></script>
         <!-- Styles -->
@@ -15,7 +15,7 @@
 </head>
 <body class="bg-white">
     @include('layouts.nav-header')
-    @include('layouts.nav')
+    @include('master')
     @yield('content')
 </body>
 </html>
