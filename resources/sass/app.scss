@@ -6,3 +6,13 @@
 
 // Bootstrap
 @import '~bootstrap/scss/bootstrap';
+
+.col-sm{
+    text-align: center;
+    border: black 2px solid;
+}
+  
+#imagen{
+  width: 150px;
+  height: 200px;
+}

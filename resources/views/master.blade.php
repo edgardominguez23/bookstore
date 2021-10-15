@@ -18,24 +18,146 @@
       <a class="nav-link" id="pills-comic-tab" data-toggle="pill" href="#pills-comic" role="tab" aria-controls="pills-comic" aria-selected="false">Comics</a>
     </li>
 </ul>
+
 <h1>Hola Mundo</h1>
 <div class="tab-content" id="pills-tabContent">
-    <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-book-tab">
-        <h1>Edgar Alan</h1>
+    <div class="tab-pane fade show active" id="pills-book" role="tabpanel" aria-labelledby="pills-book-tab">
+
+      <div class="main">
+        <div class="container">
+          @if (sizeof($books) == 0)
+              <h1>No hay libros disponibles en esta categoria</h1>
+          @endif
+
+          @foreach ($books as $book)
+              @if ($book->id % 3 == 1)
+                <div class="row">
+              @endif
+              
+              <div class="col-sm mr-1 mb-1">
+                <img id="imagen" class="img text-center" src="{{$book->picture}}" alt="Responsive image">
+              </div>
+
+              @if ($book->id % 3 == 0 || $book->id == sizeof($books))
+                </div>
+              @endif
+          @endforeach
+        </div>
+      </div>
     </div>
+
     <div class="tab-pane fade" id="pills-inf" role="tabpanel" aria-labelledby="pills-inf-tab">
-        
+      <div class="main">
+        <div class="container">
+          @if (sizeof($categA) == 0)
+              <h1>No hay libros disponibles en esta categoria</h1>
+          @endif
+          @foreach ($categA as $key => $a)
+              @if (($key + 1) % 3 == 1)
+                <div class="row">
+              @endif
+              
+              <div class="col-sm mr-1 mb-1">
+                <img id="imagen" class="img text-center" src="{{$a->picture}}" alt="Responsive image">
+              </div>
+
+              @if (($key + 1) % 3 == 0 || ($key + 1) == sizeof($categA))
+                </div>
+              @endif
+          @endforeach
+        </div>
+      </div>
     </div>
+
     <div class="tab-pane fade" id="pills-lit" role="tabpanel" aria-labelledby="pills-lit-tab">
+      <div class="main">
+        <div class="container">
+          @if (sizeof($categB) == 0)
+              <h1>No hay libros disponibles en esta categoria</h1>
+          @endif
+          @foreach ($categB as $key => $b)
+              @if (($key + 1) % 3 == 1)
+                <div class="row">
+              @endif
+              
+              <div class="col-sm mr-1 mb-1">
+                <img id="imagen" class="img text-center" src="{{$b->picture}}" alt="Responsive image">
+              </div>
 
+              @if (($key + 1) % 3 == 0 || ($key + 1) == sizeof($categB))
+                </div>
+              @endif
+          @endforeach
+        </div>
+      </div>
     </div>
+
     <div class="tab-pane fade" id="pills-text" role="tabpanel" aria-labelledby="pills-text-tab">
+      <div class="main">
+        <div class="container">
+          @if (sizeof($categC) == 0)
+              <h1>No hay libros disponibles en esta categoria</h1>
+          @endif
+          @foreach ($categC as $key => $c)
+              @if (($key + 1) % 3 == 1)
+                <div class="row">
+              @endif
+              
+              <div class="col-sm mr-1 mb-1">
+                <img id="imagen" class="img text-center" src="{{$c->picture}}" alt="Responsive image">
+              </div>
 
+              @if (($key + 1) % 3 == 0 || ($key + 1) == sizeof($categC))
+                </div>
+              @endif
+          @endforeach
+        </div>
+      </div>
     </div>
+
     <div class="tab-pane fade" id="pills-neg" role="tabpanel" aria-labelledby="pills-neg-tab">
+      <div class="main">
+        <div class="container">
+          @if (sizeof($categD) == 0)
+              <h1>No hay libros disponibles en esta categoria</h1>
+          @endif
+          @foreach ($categD as $key => $d)
+              @if (($key + 1) % 3 == 1)
+                <div class="row">
+              @endif
+              
+              <div class="col-sm mr-1 mb-1">
+                <img id="imagen" class="img text-center" src="{{$d->picture}}" alt="Responsive image">
+              </div>
 
+              @if (($key + 1) % 3 == 0 || ($key + 1) == sizeof($categD))
+                </div>
+              @endif
+          @endforeach
+        </div>
+      </div>
     </div>
-    <div class="tab-pane fade" id="pills-comic" role="tabpanel" aria-labelledby="pills-comic-tab">
 
+    <div class="tab-pane fade" id="pills-comic" role="tabpanel" aria-labelledby="pills-comic-tab">
+      <div class="main">
+        <div class="container">
+          @if (sizeof($categE) == 0)
+              <h1>No hay libros disponibles en esta categoria</h1>
+          @endif
+          @foreach ($categE as $key => $e)
+              @if (($key + 1) % 3 == 1)
+                <div class="row">
+              @endif
+              
+              <div class="col-sm mr-1 mb-1">
+                <img id="imagen" class="img text-center" src="{{$e->picture}}" alt="Responsive image">
+              </div>
+
+              @if (($key + 1) % 3 == 0 || ($key + 1) == sizeof($categE))
+                </div>
+              @endif
+          @endforeach
+        </div>
+      </div>
     </div>
 </div>

@@ -10004,3 +10004,12 @@ h3 {
     border-color: #dee2e6;
   }
 }
+.col-sm {
+  text-align: center;
+  border: black 2px solid;
+}
+
+#imagen {
+  width: 150px;
+  height: 200px;
+}
