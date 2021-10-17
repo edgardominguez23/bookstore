@@ -31,4 +31,15 @@ class HomeController extends Controller
         
         return view('welcome')->with('books', $books)->with('categA', $categA)->with('categE', $categE)->with('categB', $categB)->with('categC', $categC)->with('categD', $categD);
     }
+
+    public function searchBook(Request $request){
+        $text = trim($request->get('text'));
+        $books = DB::table('books')
+                    ->select('id','title','author','category_id','editorial','lenguage','description','picture')
+                    ->where('title','LIKE','%'.$text.'%')
+                    ->orwhere('author','LIKE','%'.$text.'%')
+                    ->paginate(50);
+        //dd($books);
+        return view('search',compact('books','text'));
+    }
 }

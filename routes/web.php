@@ -17,6 +17,7 @@ use App\Http\Controllers\HomeController;
 */
 
 Route::get('/', [HomeController::class,'index']);
+Route::get('/search', [HomeController::class,'searchBook'])->name('home.search');
 
 Auth::routes();
 

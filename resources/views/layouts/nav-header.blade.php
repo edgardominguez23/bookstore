@@ -1,8 +1,8 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
     <a href="/" style="text-decoration:none"><h3 class="text-white mr-5">BookStore</h3></a>
-    <form class="form-inline my-2 my-lg-0 ml-5">
+    <form class="form-inline my-2 my-lg-0 ml-5" action="{{route('home.search')}}" method="GET">
       <div class="input-group">
-        <input type="search" class="form-control" placeholder="Libro">
+        <input type="search" class="form-control" placeholder="Libro" name="text"
         <div class="input-group-append">
           <button class="btn btn-warning" type="submit">Buscar</button>
         </div>
