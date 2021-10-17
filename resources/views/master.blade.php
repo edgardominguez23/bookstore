@@ -35,7 +35,16 @@
               @endif
               
               <div class="col-sm mr-1 mb-1">
-                <img id="imagen" class="img text-center" src="{{$book->picture}}" alt="Responsive image">
+                <img id="imagen" class="img text-center mt-1" src="{{$book->picture}}" alt="Responsive image">
+                <p>{{$book->title}}</p>
+                <form action="{{ route('cart.store') }}" method="POST" enctype="multipart/form-data">
+                  @csrf
+                  <input type="hidden" value="{{ $book->id }}" name="id">
+                  <input type="hidden" value="{{ $book->title }}" name="title">
+                  <input type="hidden" value="{{ $book->picture }}"  name="picture">
+                  <input type="hidden" value="1" name="quantity">
+                  <button class="btn btn-primary mb-1">Agregar al carrito</button>
+                </form>
               </div>
 
               @if ($book->id % 3 == 0 || $book->id == sizeof($books))

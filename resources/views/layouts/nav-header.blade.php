@@ -1,5 +1,5 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-    <h3 class="text-white mr-5">BookStore</h3>
+    <a href="/" style="text-decoration:none"><h3 class="text-white mr-5">BookStore</h3></a>
     <form class="form-inline my-2 my-lg-0 ml-5">
       <div class="input-group">
         <input type="search" class="form-control" placeholder="Libro">
@@ -40,10 +40,10 @@
             </li>
           @endauth
           <li class="nav-item">
-            <button type="button" class="btn btn-black">
-              <span class="text-white mr-1">Carrito</span><span class="badge badge-success">0</span>
+            <a type="submit" class="btn btn-black" href="/cart">
+              <span class="text-white mr-1">Carrito</span><span class="badge badge-success">{{ Cart::getTotalQuantity()}}</span>
               <span class="sr-only">unread messages</span>
-            </button>
+            </a>
           </li>
         @endif
       </ul>
