@@ -35,7 +35,7 @@ class HomeController extends Controller
     public function searchBook(Request $request){
         $text = trim($request->get('text'));
         $books = DB::table('books')
-                    ->select('id','title','author','category_id','editorial','lenguage','description','picture')
+                    ->select('id','title','author','category_id','editorial','price','lenguage','description','picture')
                     ->where('title','LIKE','%'.$text.'%')
                     ->orwhere('author','LIKE','%'.$text.'%')
                     ->paginate(50);

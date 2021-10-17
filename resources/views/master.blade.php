@@ -37,11 +37,13 @@
               <div class="col-sm mr-1 mb-1">
                 <img id="imagen" class="img text-center mt-1" src="{{$book->picture}}" alt="Responsive image">
                 <p>{{$book->title}}</p>
+                <p>${{$book->price}}</p>
                 <form action="{{ route('cart.store') }}" method="POST" enctype="multipart/form-data">
                   @csrf
                   <input type="hidden" value="{{ $book->id }}" name="id">
                   <input type="hidden" value="{{ $book->title }}" name="title">
                   <input type="hidden" value="{{ $book->picture }}"  name="picture">
+                  <input type="hidden" value="{{ $book->price }}"  name="price">
                   <input type="hidden" value="1" name="quantity">
                   <button class="btn btn-primary mb-1">Agregar al carrito</button>
                 </form>
@@ -68,12 +70,14 @@
               
               <div class="col-sm mr-1 mb-1">
                 <img id="imagen" class="img text-center" src="{{$a->picture}}" alt="Responsive image">
-                <p>{{$book->title}}</p>
+                <p>{{$a->title}}</p>
+                <p>${{$a->price}}</p>
                 <form action="{{ route('cart.store') }}" method="POST" enctype="multipart/form-data">
                   @csrf
-                  <input type="hidden" value="{{ $book->id }}" name="id">
-                  <input type="hidden" value="{{ $book->title }}" name="title">
-                  <input type="hidden" value="{{ $book->picture }}"  name="picture">
+                  <input type="hidden" value="{{ $a->id }}" name="id">
+                  <input type="hidden" value="{{ $a->title }}" name="title">
+                  <input type="hidden" value="{{ $a->picture }}"  name="picture">
+                  <input type="hidden" value="{{ $a->price }}"  name="price">
                   <input type="hidden" value="1" name="quantity">
                   <button class="btn btn-primary mb-1">Agregar al carrito</button>
                 </form>
@@ -100,12 +104,14 @@
               
               <div class="col-sm mr-1 mb-1">
                 <img id="imagen" class="img text-center" src="{{$b->picture}}" alt="Responsive image">
-                <p>{{$book->title}}</p>
+                <p>{{$b->title}}</p>
+                <p>${{$b->price}}</p>
                 <form action="{{ route('cart.store') }}" method="POST" enctype="multipart/form-data">
                   @csrf
-                  <input type="hidden" value="{{ $book->id }}" name="id">
-                  <input type="hidden" value="{{ $book->title }}" name="title">
-                  <input type="hidden" value="{{ $book->picture }}"  name="picture">
+                  <input type="hidden" value="{{ $b->id }}" name="id">
+                  <input type="hidden" value="{{ $b->title }}" name="title">
+                  <input type="hidden" value="{{ $b->picture }}"  name="picture">
+                  <input type="hidden" value="{{ $b->price }}"  name="price">
                   <input type="hidden" value="1" name="quantity">
                   <button class="btn btn-primary mb-1">Agregar al carrito</button>
                 </form>
@@ -132,12 +138,14 @@
               
               <div class="col-sm mr-1 mb-1">
                 <img id="imagen" class="img text-center" src="{{$c->picture}}" alt="Responsive image">
-                <p>{{$book->title}}</p>
+                <p>{{$c->title}}</p>
+                <p>${{$c->price}}</p>
                 <form action="{{ route('cart.store') }}" method="POST" enctype="multipart/form-data">
                   @csrf
-                  <input type="hidden" value="{{ $book->id }}" name="id">
-                  <input type="hidden" value="{{ $book->title }}" name="title">
-                  <input type="hidden" value="{{ $book->picture }}"  name="picture">
+                  <input type="hidden" value="{{ $c->id }}" name="id">
+                  <input type="hidden" value="{{ $c->title }}" name="title">
+                  <input type="hidden" value="{{ $c->picture }}"  name="picture">
+                  <input type="hidden" value="{{ $c->price }}"  name="price">
                   <input type="hidden" value="1" name="quantity">
                   <button class="btn btn-primary mb-1">Agregar al carrito</button>
                 </form>
@@ -164,12 +172,14 @@
               
               <div class="col-sm mr-1 mb-1">
                 <img id="imagen" class="img text-center" src="{{$d->picture}}" alt="Responsive image">
-                <p>{{$book->title}}</p>
+                <p>{{$d->title}}</p>
+                <p>${{$d->price}}</p>
                 <form action="{{ route('cart.store') }}" method="POST" enctype="multipart/form-data">
                   @csrf
-                  <input type="hidden" value="{{ $book->id }}" name="id">
-                  <input type="hidden" value="{{ $book->title }}" name="title">
-                  <input type="hidden" value="{{ $book->picture }}"  name="picture">
+                  <input type="hidden" value="{{ $d->id }}" name="id">
+                  <input type="hidden" value="{{ $d->title }}" name="title">
+                  <input type="hidden" value="{{ $d->picture }}"  name="picture">
+                  <input type="hidden" value="{{ $d->price }}"  name="price">
                   <input type="hidden" value="1" name="quantity">
                   <button class="btn btn-primary mb-1">Agregar al carrito</button>
                 </form>
@@ -196,12 +206,14 @@
               
               <div class="col-sm mr-1 mb-1">
                 <img id="imagen" class="img text-center" src="{{$e->picture}}" alt="Responsive image">
-                <p>{{$book->title}}</p>
+                <p>{{$e->title}}</p>
+                <p>${{$e->price}}</p>
                 <form action="{{ route('cart.store') }}" method="POST" enctype="multipart/form-data">
                   @csrf
-                  <input type="hidden" value="{{ $book->id }}" name="id">
-                  <input type="hidden" value="{{ $book->title }}" name="title">
-                  <input type="hidden" value="{{ $book->picture }}"  name="picture">
+                  <input type="hidden" value="{{ $e->id }}" name="id">
+                  <input type="hidden" value="{{ $e->title }}" name="title">
+                  <input type="hidden" value="{{ $e->picture }}"  name="picture">
+                  <input type="hidden" value="{{ $e->price }}"  name="price">
                   <input type="hidden" value="1" name="quantity">
                   <button class="btn btn-primary mb-1">Agregar al carrito</button>
                 </form>
