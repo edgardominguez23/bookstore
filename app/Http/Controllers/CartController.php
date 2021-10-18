@@ -32,7 +32,8 @@ class CartController extends Controller
         ]);
         session()->flash('success', 'El libro fue agregado exitosamente!!');
 
-        return redirect()->route('cart.list');
+        //return redirect()->route('cart.list');
+        return back()->with('status','Libro agregado al carrito de compras');
     }
 
     public function updateCart(Request $request)
