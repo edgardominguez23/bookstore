@@ -19,7 +19,8 @@
     </li>
 </ul>
 
-<h1>Hola Mundo</h1>
+<h1>Recomendaciones de libros</h1>
+
 <div class="tab-content" id="pills-tabContent">
     <div class="tab-pane fade show active" id="pills-book" role="tabpanel" aria-labelledby="pills-book-tab">
 
@@ -29,8 +30,8 @@
               <h1>No hay libros disponibles en esta categoria</h1>
           @endif
 
-          @foreach ($books as $book)
-              @if ($book->id % 3 == 1)
+          @foreach ($books as $key => $book)
+              @if (($key + 1) % 3 == 1)
                 <div class="row">
               @endif
               
@@ -49,7 +50,7 @@
                 </form>
               </div>
 
-              @if ($book->id % 3 == 0 || $book->id == sizeof($books))
+              @if (($key + 1) % 3 == 0 || ($key + 1) == sizeof($books))
                 </div>
               @endif
           @endforeach

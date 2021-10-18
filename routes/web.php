@@ -22,6 +22,7 @@ Route::get('/search', [HomeController::class,'searchBook'])->name('home.search')
 Auth::routes();
 
 Route::resource('dashboard/book', BookController::class);
+Route::post('dashboard/book/{book}/picture', [BookController::class,'picture'])->name('book.picture');
 
 Route::get('/cart', [CartController::class, 'cartList'])->name('cart.list');
 Route::post('/cart', [CartController::class, 'addToCart'])->name('cart.store');
