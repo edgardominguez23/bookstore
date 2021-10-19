@@ -15,6 +15,7 @@
 </head>
 <body class="bg-white">
     @include('layouts.nav-header')
+
     <div class="main mt-5">
         <div class="container">
           <h4 class="mb-4">Resultados para "{{$text}}"</h4>

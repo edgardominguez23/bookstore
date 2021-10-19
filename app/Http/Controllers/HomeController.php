@@ -28,8 +28,13 @@ class HomeController extends Controller
         $categC = DB::select('select * from books where category_id = :id', ['id' => 3]);
         $categD = DB::select('select * from books where category_id = :id', ['id' => 4]);
         $categE = DB::select('select * from books where category_id = :id', ['id' => 5]);
+
+        $recomBooks = DB::select('select * from books order by sold desc limit 3');
+        $newBooks = DB::select('select * from books order by created_at asc limit 2');
+
+        $result = array_merge($recomBooks, $newBooks);
         
-        return view('welcome')->with('books', $books)->with('categA', $categA)->with('categE', $categE)->with('categB', $categB)->with('categC', $categC)->with('categD', $categD);
+        return view('welcome')->with('books', $books)->with('categA', $categA)->with('categE', $categE)->with('categB', $categB)->with('categC', $categC)->with('categD', $categD)->with('result',$result);
     }
 
     public function searchBook(Request $request){

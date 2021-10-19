@@ -19,9 +19,10 @@
     </li>
 </ul>
 
-<h1>Recomendaciones de libros</h1>
+<h4 class="text-center">Recomendaciones de libros</h4>
+@include('carousel')
 
-<div class="tab-content" id="pills-tabContent">
+<div class="tab-content mt-5" id="pills-tabContent">
     <div class="tab-pane fade show active" id="pills-book" role="tabpanel" aria-labelledby="pills-book-tab">
 
       <div class="main">

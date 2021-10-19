@@ -23,6 +23,7 @@ class CreateBooksTable extends Migration
             $table->string('lenguage',100)->nullable();
             $table->string('description',500)->nullable();
             $table->string('picture',250)->nullable();
+            $table->bigInteger('sold')->unisgned()->nullable()->default(0);
             $table->timestamps();
         });
     }
