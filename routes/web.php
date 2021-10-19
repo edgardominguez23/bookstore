@@ -29,3 +29,4 @@ Route::post('/cart', [CartController::class, 'addToCart'])->name('cart.store');
 Route::post('/update-cart', [CartController::class, 'updateCart'])->name('cart.update');
 Route::post('/remove-cart', [CartController::class, 'removeCart'])->name('cart.remove');
 Route::post('/clear-cart', [CartController::class, 'clearAllCart'])->name('cart.clear');
+Route::post('/cart-pay', [CartController::class, 'payBooks'])->name('cart.pay');

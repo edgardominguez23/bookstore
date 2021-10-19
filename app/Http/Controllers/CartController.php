@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Book;
 use Illuminate\Http\Request;
 
 class CartController extends Controller
@@ -34,6 +35,24 @@ class CartController extends Controller
 
         //return redirect()->route('cart.list');
         return back()->with('status','Libro agregado al carrito de compras');
+    }
+
+    public function payBooks(Request $request){
+        
+        foreach($request->booksId as $key => $id){
+            
+            $book = Book::where('id', $id)->get();
+            
+            $book_sold = Book::where('id', $id)->first();
+
+            $book->toQuery()->update([
+                'sold' => $request->booksQ[$key] + $book_sold->sold,
+            ]);
+        }
+
+        \Cart::clear();
+
+        return back()->with('status','Pago realizado correctamente');
     }
 
     public function updateCart(Request $request)

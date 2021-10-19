@@ -67,6 +67,8 @@
             </table>
         </div>
         <div class="col mt-5">
+            <form method="POST" action="{{ route('cart.pay') }}">
+                @csrf
             <h3 class="mt-3 mb-5 text-center">Pago</h3>
             <div class="row mb-4">
                 <div class="col-sm-6">
@@ -81,26 +83,30 @@
             </div>
             <div>
                 <div class="col form-group">
-                    <label for="card-number">Numero de targeta</label> 
+                    <label for="card-number">Card Number</label> 
                     <input id="card-number" type="text" class="form-control" name="card-number">
                 </div>
 
                 <div class="col form-group">
-                    <label for="card-holder">Titular de la targeta</label> 
+                    <label for="card-holder">Card Holder</label> 
                     <input id="card-holder" type="text" class="form-control" name="card-holder">
                 </div>
 
                 <div class="row mb-4">
                     <div class="col-sm-6">
                         <div class="col form-group">
-                            <label for="card-holder">Espires</label> 
-                            <input id="card-holder" type="text" class="form-control" name="card-holder">
+                            <label for="expires">Expires</label> 
+                            <input id="expires" type="text" class="form-control" name="expires">
                         </div>
                     </div>
                     <div class="col-sm-6">
                         <div class="col form-group">
-                            <label for="card-holder">CVC</label> 
-                            <input id="card-holder" type="text" class="form-control" name="card-holder">
+                            <label for="cvc">CVC</label> 
+                            <input id="cvc" type="text" class="form-control" name="cvc">
+                            @foreach ($cartItems as $item)
+                                <input type="hidden" value="{{ $item->quantity}}" name="booksQ[]">
+                                <input type="hidden" value="{{ $item->id}}" name="booksId[]">
+                            @endforeach
                         </div>
                     </div>
                 </div>
@@ -110,6 +116,7 @@
                     Pagar
                 </button>
             </div> 
+            </form>
         </div>
     </div>
 </body>
