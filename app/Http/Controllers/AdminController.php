@@ -8,7 +8,8 @@ class AdminController extends Controller
 {
     public function __construct()
     {
-        $this->middleware('auth','rol.admin');
+        $this->middleware('auth');
+        $this->middleware('rol.admin');
     }
 
     public function adminPage(){
