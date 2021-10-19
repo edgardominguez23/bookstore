@@ -38,7 +38,7 @@
               
               <div class="col-sm mr-1 mb-1">
                 <img id="imagen" class="img text-center mt-1" src="{{$book->picture}}" alt="Responsive image">
-                <p>{{$book->title}}</p>
+                <p>{{Str::limit($book->title,21)}}</p>
                 <p>${{$book->price}}</p>
                 <form action="{{ route('cart.store') }}" method="POST" enctype="multipart/form-data">
                   @csrf
@@ -72,7 +72,7 @@
               
               <div class="col-sm mr-1 mb-1">
                 <img id="imagen" class="img text-center" src="{{$a->picture}}" alt="Responsive image">
-                <p>{{$a->title}}</p>
+                <p>{{Str::limit($a->title,21)}}</p>
                 <p>${{$a->price}}</p>
                 <form action="{{ route('cart.store') }}" method="POST" enctype="multipart/form-data">
                   @csrf
@@ -106,7 +106,7 @@
               
               <div class="col-sm mr-1 mb-1">
                 <img id="imagen" class="img text-center" src="{{$b->picture}}" alt="Responsive image">
-                <p>{{$b->title}}</p>
+                <p>{{Str::limit($b->title,21)}}</p>
                 <p>${{$b->price}}</p>
                 <form action="{{ route('cart.store') }}" method="POST" enctype="multipart/form-data">
                   @csrf
@@ -140,7 +140,7 @@
               
               <div class="col-sm mr-1 mb-1">
                 <img id="imagen" class="img text-center" src="{{$c->picture}}" alt="Responsive image">
-                <p>{{$c->title}}</p>
+                <p>{{Str::limit($c->title,21)}}</p>
                 <p>${{$c->price}}</p>
                 <form action="{{ route('cart.store') }}" method="POST" enctype="multipart/form-data">
                   @csrf
@@ -174,7 +174,7 @@
               
               <div class="col-sm mr-1 mb-1">
                 <img id="imagen" class="img text-center" src="{{$d->picture}}" alt="Responsive image">
-                <p>{{$d->title}}</p>
+                <p>{{Str::limit($d->title,21)}}</p>
                 <p>${{$d->price}}</p>
                 <form action="{{ route('cart.store') }}" method="POST" enctype="multipart/form-data">
                   @csrf
@@ -208,7 +208,7 @@
               
               <div class="col-sm mr-1 mb-1">
                 <img id="imagen" class="img text-center" src="{{$e->picture}}" alt="Responsive image">
-                <p>{{$e->title}}</p>
+                <p>{{Str::limit($e->title,21)}}</p>
                 <p>${{$e->price}}</p>
                 <form action="{{ route('cart.store') }}" method="POST" enctype="multipart/form-data">
                   @csrf
