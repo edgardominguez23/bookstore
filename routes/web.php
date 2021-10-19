@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\BookController;
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\AdminController;
 
 /*
 |--------------------------------------------------------------------------
@@ -19,7 +20,7 @@ use App\Http\Controllers\HomeController;
 Route::get('/', [HomeController::class,'index']);
 Route::get('/search', [HomeController::class,'searchBook'])->name('home.search');
 
-Route::get('/admin', [HomeController::class, 'adminPage'])->name('admin.site');
+Route::get('/admin', [AdminController::class, 'adminPage'])->name('admin.site');
 
 Auth::routes();
 

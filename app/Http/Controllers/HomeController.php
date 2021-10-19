@@ -47,8 +47,4 @@ class HomeController extends Controller
         //dd($books);
         return view('search',compact('books','text'));
     }
-
-    public function adminPage(){
-        return view('admin.admin-main');
-    }
 }
