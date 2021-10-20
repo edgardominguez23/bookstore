@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use App\Http\Requests\StoreUserPost;
+use Illuminate\Support\Facades\Hash;
 
 class AdminController extends Controller
 {
@@ -41,14 +43,14 @@ class AdminController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(StoreBookPost $request)
+    public function store(StoreUserPost $request)
     {
         User::create(
             [
                 'name' => $request['name'],
                 'rol_id' => 3, //Usuario administrador
                 'email' => $request['email'],
-                'password' => $request['password'],
+                'password' => Hash::make($request['password']),
             ]
         );
 
@@ -78,7 +80,6 @@ class AdminController extends Controller
         $user->update(
             [
                 'name' => $request['name'],
-                'email' => $request['email'],
             ]
         );
 

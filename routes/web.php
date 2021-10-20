@@ -25,7 +25,7 @@ Route::get('/admin', [AdminController::class, 'adminPage'])->name('admin.site');
 Auth::routes();
 
 Route::resource('/admin', AdminController::class)->except([
-    'index','show',
+    'index','show','edit','update',
 ]);;
 
 Route::resource('dashboard/book', BookController::class);
