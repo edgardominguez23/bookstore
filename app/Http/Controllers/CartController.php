@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Models\Book;
+use App\Models\Shopping;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class CartController extends Controller
 {
@@ -38,21 +40,43 @@ class CartController extends Controller
     }
 
     public function payBooks(Request $request){
-        
-        foreach($request->booksId as $key => $id){
-            
-            $book = Book::where('id', $id)->get();
-            
-            $book_sold = Book::where('id', $id)->first();
+        //dd($request);
+        $request->validate([
+            'cardnumber' => 'required|numeric|min:12',
+            'cardholder' => 'required|min:3',
+            'expires' => 'required|date_format:m/y',
+            'cvc'     => 'required|numeric|min:3',
+        ]);
 
-            $book->toQuery()->update([
-                'sold' => $request->booksQ[$key] + $book_sold->sold,
-            ]);
+        if($request->booksId){
+            foreach($request->booksId as $key => $id){
+            
+                $book = Book::where('id', $id)->get();
+                
+                $book_sold = Book::where('id', $id)->first();
+    
+                $book->toQuery()->update([
+                    'sold' => $request->booksQ[$key] + $book_sold->sold,
+                ]);
+
+                Shopping::create(
+                    [
+                        'username' => Auth::user()->name,
+                        'book' => $book_sold->title, //Usuario administrador
+                        'quantity' => $request->booksQ[$key],
+                        'status' => 0,
+                        'id_mensajeria' => rand(1,3)
+                    ]
+                );
+            }
+    
+            \Cart::clear();
+            session()->flash('success', 'Pago realizado correctamente!!');
+            return back()->with('status','Pago realizado correctamente');
+        }else{
+            session()->flash('success', 'No se encuentran productos por comprar!!');
+            return back()->with('status','No se encuentran productos por comprar!!');
         }
-
-        \Cart::clear();
-
-        return back()->with('status','Pago realizado correctamente');
     }
 
     public function updateCart(Request $request)

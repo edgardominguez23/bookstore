@@ -16,12 +16,14 @@
 <body class="bg-white">
     @include('layouts.nav-header')
     <div class="container">
-        <div class="row">
-            @if ($message = Session::get('success'))
+
+        @if ($message = Session::get('success'))
             <div class="p-4 mb-3 bg-green-400 rounded">
                 <div class="alert alert-success">{{ $message }}</div>
             </div>
         @endif
+
+        <div class="row">
 
         <div class="col mt-5">
             <h3 class="mt-3 mb-5 text-center">Lista de productos en el carrito</h3>
@@ -83,13 +85,19 @@
             </div>
             <div>
                 <div class="col form-group">
-                    <label for="card-number">Card Number</label> 
-                    <input id="card-number" type="text" class="form-control" name="card-number">
+                    <label for="cardnumber">Card Number</label> 
+                    <input id="cardnumber" type="text" class="form-control" name="cardnumber">
+                    @error('cardnumber')
+                        <small class="text-danger">{{ $message}}</small>
+                    @enderror
                 </div>
 
                 <div class="col form-group">
-                    <label for="card-holder">Card Holder</label> 
-                    <input id="card-holder" type="text" class="form-control" name="card-holder">
+                    <label for="cardholder">Card Holder</label> 
+                    <input id="cardholder" type="text" class="form-control" name="cardholder">
+                    @error('cardholder')
+                        <small class="text-danger">{{ $message}}</small>
+                    @enderror
                 </div>
 
                 <div class="row mb-4">
@@ -97,12 +105,18 @@
                         <div class="col form-group">
                             <label for="expires">Expires</label> 
                             <input id="expires" type="text" class="form-control" name="expires">
+                            @error('expires')
+                                <small class="text-danger">{{ $message}}</small>
+                            @enderror
                         </div>
                     </div>
                     <div class="col-sm-6">
                         <div class="col form-group">
                             <label for="cvc">CVC</label> 
                             <input id="cvc" type="text" class="form-control" name="cvc">
+                            @error('cvc')
+                                <small class="text-danger">{{ $message}}</small>
+                            @enderror
                             @foreach ($cartItems as $item)
                                 <input type="hidden" value="{{ $item->quantity}}" name="booksQ[]">
                                 <input type="hidden" value="{{ $item->id}}" name="booksId[]">
