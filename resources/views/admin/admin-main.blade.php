@@ -66,8 +66,41 @@
     <div class="tab-pane fade" id="pills-create" role="tabpanel" aria-labelledby="pills-create-tab">
       <div class="main">
         <div class="container">
-            <p>Programacion</p>
+          <h3>Administracion de usuarios para las editoriales</h3>
+          <a class="btn btn-success mt-5" href="{{route("book.create")}}"> 
+            Crear
+          </a>
+          <table class="table table-hover">
+            <thead>
+              <tr>
+                <th scope="col">Id</th>
+                <th scope="col">Name</th>
+                <th scope="col">Email</th>
+                <th scope="col">Created at</th>
+                <th scope="col">Acciones</th>
+              </tr>
+            </thead>
+            <tbody>
+                @foreach ($users as $user)
+                <tr>
+                    <th scope="row">{{$user->id}}</th>
+                    <td>{{$user->name}}</td>
+                    <td>{{$user->email}}</td>
+                    <td>{{ Carbon\Carbon::parse($user->created_at)->format('Y-m-d') }}</td>
+                    <td>
+                        <a href="{{ route('book.edit',$user->id) }}" class="btn btn-primary mb-1">
+                            Editar
+                        </a>
+                        <button data-toggle="modal" data-target="#deleteModal" data-id="{{ $user->id }}" class="btn btn-danger mb-1">
+                           Eliminar
+                        </button>
+                    </td>
+                </tr>
+                @endforeach
+            </tbody>
+          </table>
         </div>
+        {{$users->links()}}
       </div>
     </div>
 </div>

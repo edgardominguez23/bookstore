@@ -24,6 +24,10 @@ Route::get('/admin', [AdminController::class, 'adminPage'])->name('admin.site');
 
 Auth::routes();
 
+Route::resource('/admin', AdminController::class)->except([
+    'index','show',
+]);;
+
 Route::resource('dashboard/book', BookController::class);
 Route::post('dashboard/book/{book}/picture', [BookController::class,'picture'])->name('book.picture');
 

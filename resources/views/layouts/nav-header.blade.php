@@ -20,6 +20,11 @@
               </a>
              <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                 <span class="dropdown-item">{{ Auth::user()->name }}</span>
+                @if (Auth::user()->rol_id == 2)
+                  <a class="dropdown-item" href="/admin">Administracion</a>
+                @elseif (Auth::user()->rol_id == 3)
+                  <a class="dropdown-item" href="/dashboard/book">Administracion</a>
+                @endif
                 <a class="dropdown-item" type="submit" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
                   {{ __('Logout') }}
                 </a>
@@ -31,7 +36,7 @@
             @else <!--Usuario no autenticado-->
             <li class="nav-item dropdown">
               <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                Hola, indentificate
+                Identificate
               </a>
               <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                 <a class="dropdown-item" href="{{ route('login') }}">Log in</a>
