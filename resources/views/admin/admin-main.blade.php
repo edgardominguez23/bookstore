@@ -58,7 +58,45 @@
     <div class="tab-pane fade" id="pills-hist" role="tabpanel" aria-labelledby="pills-hist-tab">
       <div class="main">
         <div class="container">
-          <p>Mundo</p>
+          <h3 class="mb-5">Todas las compras</h3>
+          <table class="table table-hover">
+            <thead>
+              <tr>
+                <th scope="col">Usuario</th>
+                <th scope="col">Libro</th>
+                <th scope="col">Cantidad</th>
+                <th scope="col">Estado</th>
+                <th scope="col">Mensajeria</th>
+              </tr>
+            </thead>
+            <tbody>
+                @foreach ($shoppings as $s)
+                <tr>
+                    <th scope="row">{{$s->username}}</th>
+                    <td>{{$s->book}}</td>
+                    <td>{{$s->quantity}}</td>
+                    <td>
+                      @if ($s->status == 0)
+                          Comprado
+                      @elseif($s->status == 0)
+                          En proveso de envio
+                      @else
+                          Entregado
+                      @endif
+                    </td>
+                    <td>
+                      @if ($s->id_mensajeria == 1)
+                          DHL
+                      @elseif($s->id_mensajeria == 2)
+                          Fedex
+                      @else
+                          UPS
+                      @endif
+                    </td>
+                </tr>
+                @endforeach
+            </tbody>
+          </table>
         </div>
       </div>
     </div>

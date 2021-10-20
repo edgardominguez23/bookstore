@@ -24,6 +24,8 @@
                   <a class="dropdown-item" href="/admin">Administracion</a>
                 @elseif (Auth::user()->rol_id == 3)
                   <a class="dropdown-item" href="/dashboard/book">Administracion</a>
+                @else
+                  <a class="dropdown-item" href="/historial-compras">Historial de compras</a>
                 @endif
                 <a class="dropdown-item" type="submit" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
                   {{ __('Logout') }}

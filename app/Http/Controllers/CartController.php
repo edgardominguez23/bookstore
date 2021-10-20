@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Book;
 use App\Models\Shopping;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
 
 class CartController extends Controller
@@ -77,6 +78,12 @@ class CartController extends Controller
             session()->flash('success', 'No se encuentran productos por comprar!!');
             return back()->with('status','No se encuentran productos por comprar!!');
         }
+    }
+
+    public function compras(){
+        $shoppings = DB::select('select * from shoppings where username = :name', ['name' => Auth::user()->name]);
+
+        return view('historial',compact('shoppings'));
     }
 
     public function updateCart(Request $request)

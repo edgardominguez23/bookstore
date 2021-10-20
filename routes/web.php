@@ -22,6 +22,8 @@ Route::get('/search', [HomeController::class,'searchBook'])->name('home.search')
 
 Route::get('/admin', [AdminController::class, 'adminPage'])->name('admin.site');
 
+Route::get('/historial-compras', [CartController::class, 'compras'])->name('cart.compras');
+
 Auth::routes();
 
 Route::resource('/admin', AdminController::class)->except([

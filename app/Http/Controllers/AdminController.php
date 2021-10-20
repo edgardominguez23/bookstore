@@ -24,7 +24,12 @@ class AdminController extends Controller
                     ->orderBy('created_at','desc')
                     ->paginate(10);
 
-        return view('admin.admin-main',['users'=> $users]);
+        $shoppings = DB::table('shoppings')
+                    ->select('username','book','quantity','status','id_mensajeria')
+                    ->orderBy('created_at','desc')
+                    ->paginate(10);
+
+        return view('admin.admin-main',['users'=> $users,'shoppings' => $shoppings]);
     }
 
      /**
