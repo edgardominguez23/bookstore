@@ -54,7 +54,16 @@
                     </tr>
                     @endforeach
                     <tr>
-                        <th scope="row">Total:</th>
+                        <th scope="row">Envio:</th>
+                        <td>
+                            <select class="form-control" name="pets" id="selectEnvio">
+                                <option value="1">Normal</option>
+                                <option value="2">Rapido</option>
+                            </select> 
+                        </td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Subtotal:</th>
                         <td colspan="0">${{ Cart::getTotal() }}</td>
                     </tr>
                     <tr>
@@ -64,6 +73,9 @@
                                 <button class="btn btn-danger">Remover todo</button>
                             </form>
                         </th>
+                        <td>
+                            <button class="btn btn-warning" id="btnShow" class="btn btn-success btn-block" data-toggle="modal" data-target="#deleteModal" data-id="#payBooks">Informacion</button>
+                        </td>
                     </tr>
                 </tbody>
             </table>
@@ -126,12 +138,53 @@
                 </div>
             </div>
             <div class="form-group">
-                <button type="submit" class="btn btn-success btn-block"> 
-                    Pagar
-                </button>
+                <button class="btn btn-success btn-lg btn-block">Pagar</button>
             </div> 
             </form>
         </div>
     </div>
+
+    <div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <div class="modal-title" id="ModalLabel">
+                <h5>Informacion importante de la compra</h5>
+              </div>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body" id="mouse">
+                <p id="varA"></p>
+                <p id="varB"></p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-warning" data-dismiss="modal">Close</button>
+            </div>
+          </div>
+        </div>
+    </div>
+
+    <script>
+        window.onload = function(){
+
+            const button = document.getElementById('btnShow');
+
+            $('#deleteModal').on('show.bs.modal', function (event) {
+                var cod = document.getElementById("selectEnvio").value;
+
+                var modal = $(this)
+
+                if(cod == 1){
+                    modal.find('#varA').text("Costo de envio: $100")
+                    modal.find('#varB').text("El total de la compra es: ${{Cart::getTotal() + 100}}")
+                }else{
+                    modal.find('#varA').text("Costo de envio: $300")
+                    modal.find('#varB').text("El total de la compra es: ${{Cart::getTotal() + 300}}")
+                }
+            });
+        };
+    </script>
 </body>
 </html>
