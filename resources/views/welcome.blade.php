@@ -17,5 +17,7 @@
     @include('layouts.nav-header')
     @include('master')
     @yield('content')
+    <br><br><br><br><br>
+    @include('layouts.footer')
 </body>
 </html>

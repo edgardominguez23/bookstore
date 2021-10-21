@@ -19,6 +19,7 @@ use App\Http\Controllers\AdminController;
 
 Route::get('/', [HomeController::class,'index']);
 Route::get('/search', [HomeController::class,'searchBook'])->name('home.search');
+Route::get('/{book}', [HomeController::class,'show'])->name('home.show');
 
 Route::get('/admin', [AdminController::class, 'adminPage'])->name('admin.site');
 

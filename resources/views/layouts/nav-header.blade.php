@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+<nav id="barraNaveg" class="navbar navbar-expand-lg navbar-dark bg-dark">
     <a href="/" style="text-decoration:none"><h3 class="text-white mr-5">BookStore</h3></a>
     <form class="form-inline my-2 my-lg-0 ml-5" action="{{route('home.search')}}" method="GET">
       <div class="input-group">

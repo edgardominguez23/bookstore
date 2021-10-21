@@ -47,4 +47,8 @@ class HomeController extends Controller
         //dd($books);
         return view('search',compact('books','text'));
     }
+
+    public function show(Book $book){
+        return view("show",["book"=>$book]);
+    }
 }

@@ -37,7 +37,9 @@
               @endif
               
               <div class="col-sm mr-1 mb-1">
-                <img id="imagen" class="img text-center mt-1" src="{{$book->picture}}" alt="Responsive image">
+                <a href="{{ route('home.show',$book->id) }}" class="btn mb-1">
+                  <img id="imagen" class="img text-center mt-1" src="{{$book->picture}}" alt="Responsive image">
+                </a>
                 <p>{{Str::limit($book->title,21)}}</p>
                 <p>${{$book->price}}</p>
                 <form action="{{ route('cart.store') }}" method="POST" enctype="multipart/form-data">
@@ -71,7 +73,9 @@
               @endif
               
               <div class="col-sm mr-1 mb-1">
-                <img id="imagen" class="img text-center" src="{{$a->picture}}" alt="Responsive image">
+                <a href="{{ route('home.show',$a->id) }}" class="btn mt-1 mb-1">
+                  <img id="imagen" class="img text-center mt-1" src="{{$a->picture}}" alt="Responsive image">
+                </a>
                 <p>{{Str::limit($a->title,21)}}</p>
                 <p>${{$a->price}}</p>
                 <form action="{{ route('cart.store') }}" method="POST" enctype="multipart/form-data">
@@ -105,7 +109,9 @@
               @endif
               
               <div class="col-sm mr-1 mb-1">
-                <img id="imagen" class="img text-center" src="{{$b->picture}}" alt="Responsive image">
+                <a href="{{ route('home.show',$b->id) }}" class="btn mb-1">
+                  <img id="imagen" class="img text-center mt-1" src="{{$b->picture}}" alt="Responsive image">
+                </a>
                 <p>{{Str::limit($b->title,21)}}</p>
                 <p>${{$b->price}}</p>
                 <form action="{{ route('cart.store') }}" method="POST" enctype="multipart/form-data">
@@ -139,7 +145,9 @@
               @endif
               
               <div class="col-sm mr-1 mb-1">
-                <img id="imagen" class="img text-center" src="{{$c->picture}}" alt="Responsive image">
+                <a href="{{ route('home.show',$c->id) }}" class="btn mb-1">
+                  <img id="imagen" class="img text-center mt-1" src="{{$c->picture}}" alt="Responsive image">
+                </a>
                 <p>{{Str::limit($c->title,21)}}</p>
                 <p>${{$c->price}}</p>
                 <form action="{{ route('cart.store') }}" method="POST" enctype="multipart/form-data">
@@ -173,7 +181,9 @@
               @endif
               
               <div class="col-sm mr-1 mb-1">
-                <img id="imagen" class="img text-center" src="{{$d->picture}}" alt="Responsive image">
+                <a href="{{ route('home.show',$d->id) }}" class="btn mb-1">
+                  <img id="imagen" class="img text-center mt-1" src="{{$d->picture}}" alt="Responsive image">
+                </a>
                 <p>{{Str::limit($d->title,21)}}</p>
                 <p>${{$d->price}}</p>
                 <form action="{{ route('cart.store') }}" method="POST" enctype="multipart/form-data">
@@ -207,7 +217,9 @@
               @endif
               
               <div class="col-sm mr-1 mb-1">
-                <img id="imagen" class="img text-center" src="{{$e->picture}}" alt="Responsive image">
+                <a href="{{ route('home.show',$e->id) }}" class="btn mb-1">
+                  <img id="imagen" class="img text-center mt-1" src="{{$e->picture}}" alt="Responsive image">
+                </a>
                 <p>{{Str::limit($e->title,21)}}</p>
                 <p>${{$e->price}}</p>
                 <form action="{{ route('cart.store') }}" method="POST" enctype="multipart/form-data">
