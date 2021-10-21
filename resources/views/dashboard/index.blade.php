@@ -38,6 +38,52 @@
       </table>
       {{$books->links('pagination::bootstrap-4')}}
 </div>
+
+<div class="container">
+  <h3 class="mt-3">Libros comprados</h3>
+  <table class="table table-hover">
+      <thead>
+        <tr>
+          <th scope="col">Book</th>
+          <th scope="col">Cantidad</th>
+          <th scope="col">Estado</th>
+          <th scope="col">Fecha</th>
+          <th scope="col">Acciones</th>
+        </tr>
+      </thead>
+      <tbody>
+          @foreach ($shoppings as $item)
+          <tr>
+              <td scope="row">{{$item->book}}</td>
+              <td>{{$item->quantity}}</td>
+              <td>
+                @if ($item->status == 0)
+                  Comprado
+                @elseif($item->status == 1)
+                  En proceso de envio
+                @else
+                  Entregado
+                @endif
+              </td>
+              <td>{{ Carbon\Carbon::parse($item->created_at)->format('Y-m-d') }}</td>
+              <td>
+                <form action="{{ route( "book.process",$item->id )}}" method="post">
+                  @csrf
+                  <input type="hidden" value="{{ $item->id }}" name="id">
+                  <input type="hidden" value="{{ $item->status }}" name="status">
+                  <button type="submit"
+                    class="approved btn btn-{{ ($item->status == 0 ? "primary" : ($item->status == 1 ? "warning" : "success"))}}">
+                      {{ ($item->status == 0 ? "Comprado" : ($item->status == 1 ? "En proceso" : "Entregado"))}}
+                  </button>
+                </form>
+              </td>
+          </tr>
+          @endforeach
+      </tbody>
+    </table>
+    {{$shoppings->links('pagination::bootstrap-4')}}
+</div>
+
 <div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
       <div class="modal-content">

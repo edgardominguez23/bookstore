@@ -64,6 +64,7 @@ class CartController extends Controller
                     [
                         'username' => Auth::user()->name,
                         'book' => $book_sold->title, //Usuario administrador
+                        'editorial' => $book_sold->editorial,
                         'quantity' => $request->booksQ[$key],
                         'status' => 0,
                         'id_mensajeria' => rand(1,3)

@@ -4,9 +4,11 @@ namespace App\Http\Controllers;
 
 use App\Models\Book;
 use App\Models\Category;
+use App\Models\Shopping;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Http\Requests\StoreBookPost;
+use Illuminate\Pagination\Paginator;
 use Illuminate\Support\Facades\Auth;
 
 class BookController extends Controller
@@ -29,9 +31,14 @@ class BookController extends Controller
                     ->select('id','title','author','category_id','editorial','price','lenguage','description','picture','created_at')
                     ->where('editorial','LIKE','%'.$user.'%')
                     ->orderBy('created_at','desc')
-                    ->paginate(10);
+                    ->paginate(3,['*'],'paga');
+        $shoppings = DB::table('shoppings')
+                    ->select('id','book','quantity','status','created_at')
+                    ->where('editorial','LIKE','%'.$user.'%')
+                    ->orderBy('created_at','desc')
+                    ->paginate(3,['*'],'pagb');
 
-        return view("dashboard.index",['books'=> $books,'editorial'=>$user]);
+        return view("dashboard.index",['books'=> $books,'editorial'=>$user,'shoppings'=>$shoppings]);
     }
 
     /**
@@ -131,5 +138,18 @@ class BookController extends Controller
             'picture' => 'images/'.$filename,
         ]);
         return back()->with('status','Imagen actualizada');
+    }
+
+    public function process(Request $request, Shopping $book){
+        if($request->status == 0){
+            DB::table('shoppings')
+                ->where('id',$request->id)
+                ->update(['status' => 1]);
+        }else{
+            DB::table('shoppings')
+                ->where('id',$request->id)
+                ->update(['status' => 2]);
+        }
+        return back();
     }
 }

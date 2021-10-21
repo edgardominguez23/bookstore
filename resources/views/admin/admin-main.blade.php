@@ -78,7 +78,7 @@
                     <td>
                       @if ($s->status == 0)
                           Comprado
-                      @elseif($s->status == 0)
+                      @elseif($s->status == 1)
                           En proveso de envio
                       @else
                           Entregado

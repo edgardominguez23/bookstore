@@ -7,5 +7,5 @@ use Illuminate\Database\Eloquent\Model;
 
 class Shopping extends Model
 {
-    protected $fillable = ['username','book','quantity','status','id_mensajeria'];
+    protected $fillable = ['username','book','editorial','quantity','status','id_mensajeria'];
 }

@@ -31,6 +31,7 @@ Route::resource('/admin', AdminController::class)->except([
 ]);;
 
 Route::resource('dashboard/book', BookController::class);
+Route::post('dashboard/book/{shopping}/process',[BookController::class,'process'])->name('book.process');
 Route::post('dashboard/book/{book}/picture', [BookController::class,'picture'])->name('book.picture');
 
 Route::get('/cart', [CartController::class, 'cartList'])->name('cart.list');
