@@ -16,28 +16,26 @@ use App\Http\Controllers\AdminController;
 | contains the "web" middleware group. Now create something great!
 |
 */
+Route::get('/admin', [AdminController::class, 'adminPage'])->name('admin.site');
 
+Route::resource('/admin', AdminController::class)->only([
+    'create', 'store', 'destroy',
+]);;
+
+Auth::routes();
+
+Route::get('/cart', [CartController::class, 'cartList'])->name('cart.list');
+Route::get('/historial-compras', [CartController::class, 'compras'])->name('cart.compras');
 Route::get('/', [HomeController::class,'index']);
 Route::get('/search', [HomeController::class,'searchBook'])->name('home.search');
 Route::get('/{book}', [HomeController::class,'show'])->name('home.show');
 
-Route::get('/admin', [AdminController::class, 'adminPage'])->name('admin.site');
-
-Route::get('/historial-compras', [CartController::class, 'compras'])->name('cart.compras');
-
-Auth::routes();
-
-Route::resource('/admin', AdminController::class)->except([
-    'index','show','edit','update',
-]);;
-
-Route::resource('dashboard/book', BookController::class);
-Route::post('dashboard/book/{shopping}/process',[BookController::class,'process'])->name('book.process');
-Route::post('dashboard/book/{book}/picture', [BookController::class,'picture'])->name('book.picture');
-
-Route::get('/cart', [CartController::class, 'cartList'])->name('cart.list');
 Route::post('/cart', [CartController::class, 'addToCart'])->name('cart.store');
 Route::post('/update-cart', [CartController::class, 'updateCart'])->name('cart.update');
 Route::post('/remove-cart', [CartController::class, 'removeCart'])->name('cart.remove');
 Route::post('/clear-cart', [CartController::class, 'clearAllCart'])->name('cart.clear');
 Route::post('/cart-pay', [CartController::class, 'payBooks'])->name('cart.pay');
+
+Route::resource('dashboard/book', BookController::class);
+Route::post('dashboard/book/{shopping}/process',[BookController::class,'process'])->name('book.process');
+Route::post('dashboard/book/{book}/picture', [BookController::class,'picture'])->name('book.picture');

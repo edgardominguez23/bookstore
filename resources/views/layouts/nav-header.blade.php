@@ -47,7 +47,7 @@
             </li>
           @endauth
           <li class="nav-item">
-            <a type="submit" class="btn btn-black" href="/cart">
+            <a type="submit" class="btn btn-black" href="{{route('cart.list')}}">
               <span class="text-white mr-1">Carrito</span><span class="badge badge-success">{{ Cart::getTotalQuantity()}}</span>
               <span class="sr-only">unread messages</span>
             </a>
